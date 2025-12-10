@@ -1,7 +1,11 @@
-.resaltado {
-    background-color: yellow;
-    font-weight: bold;
+button{
+    background-color: red;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 10px;
 }
-.oculto {
-    display: none;
+
+div{
+    border: 1px solid;
+    margin: 1px;
 }

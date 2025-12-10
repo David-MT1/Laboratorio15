@@ -1,137 +1,196 @@
-// 3
-let h2 = document.querySelector("h2");
-console.log(h2.textContent);
+const ejer3 = document.querySelector("h2");
+console.log(ejer3);
+/*
+const ejer4 = document.querySelectorAll("p");
+ejer4.forEach(n =>{
+    n.textContent = "texto actualizado";
+})*/
+const img = document.querySelector("img");
+const btnImg = document.getElementById("btnImg");
 
-// 4
-let ps = document.querySelectorAll("p");
-ps.forEach(p => p.textContent = "Texto actualizado dinámicamente");
+btnImg.addEventListener("click", ()=>{
+img.setAttribute("src", "https://bookingmaze.com/wp-content/uploads/2025/05/IMGWOA-600x375.jpg")
+img.setAttribute("alt", "img ejercicio")
 
-// 5
-let img = document.querySelector("#imagen1");
-img.src = "https://via.placeholder.com/200x150?text=Actualizado";
-img.alt = "Imagen cambiada";
-
-// 6
-let lis = document.querySelectorAll("li");
-lis.forEach(li => {
-    li.classList.add("resaltado");
-    li.classList.remove("oculto");
 });
 
-// 7
-let ul = document.getElementById("lista1");
-for (let li of ul.children) {
-    console.log(li.textContent);
-}
+const ejer5 = document.getElementById("ejer5");
+const lis = document.querySelectorAll("li");
+const oculto = document.getElementsByClassName("oculto")
 
-// 8
-let divs = document.querySelectorAll("div");
-let colores = ["lightblue", "lightgreen", "lightpink", "lightgray"];
-divs.forEach((div, i) => {
-    div.style.backgroundColor = colores[i % colores.length];
+ejer5.addEventListener("click", (e)=>{
+    e.preventDefault();
+    lis.forEach(li=>{
+        li.classList.remove("oculto");
+        li.classList.add("resaltado");
+    })
+
+})
+
+const ejer7 = document.getElementById("ejer7");
+ejer7.addEventListener("click", (e)=>{
+    e.preventDefault();
+    const lis = document.getElementsByClassName("resaltado");
+    for (const n of lis) {  
+        console.log(n);
+    }
 });
 
-// 9
-let nuevoP = document.createElement("p");
-nuevoP.textContent = "Elemento insertado con JS";
-document.body.appendChild(nuevoP);
+const ejer8 = document.getElementById("ejer8");
+const divs = document.querySelectorAll("div");
+ejer8.addEventListener("click", ()=>{
+    divs.forEach(n => {
+        const color = Math.floor(Math.random()*900)+100;
+        n.style.backgroundColor = `#${color}`;
+    });
+})
 
-// 10
-let primerP = document.querySelector("p");
-let h3 = document.createElement("h3");
-h3.textContent = "Nuevo H3 insertado";
-primerP.before(h3);
+const nuevoP = document.createElement("p");
+const ejer9 = document.getElementById("ejer9");
+ejer9.addEventListener("click", ()=>{
+    nuevoP.textContent = "nuevo p agregado con js";
+    document.body.appendChild(nuevoP);
+} );
 
-// 11
-let listaNueva = document.createElement("ul");
-for (let i = 1; i <= 5; i++) {
-    let li = document.createElement("li");
-    li.textContent = "Elemento " + i;
-    listaNueva.appendChild(li);
-}
-document.querySelector("section").appendChild(listaNueva);
 
-// 12
-let pReemplazar = document.querySelector("p");
-let divNuevo = document.createElement("div");
-divNuevo.textContent = "Párrafo reemplazado";
-pReemplazar.replaceWith(divNuevo);
+const ejer10 = document.getElementById("ejer10");
+const elemetH3 = document.createElement("h3");
+const ps = document.querySelectorAll("p");
+ejer10.addEventListener("click", ()=>{
+    elemetH3.textContent = "este es un h3 añadido";
+    ps[0].before(elemetH3);
+})
 
-// 13
-let todosP2 = document.querySelectorAll("p");
-if (todosP2.length > 0) {
-    todosP2[todosP2.length - 1].remove();
-}
 
-// 14
-let contenido = document.getElementById("contenido");
-contenido.innerHTML = "";
+const ejer11 = document.getElementById("ejer11");
+const seccion11 = document.getElementById("seccion11");
+ejer11.addEventListener("click", ()=>{
+    const ul = document.createElement("ul");
+    for (let i = 0; i < 5; i++) {
+        const li = document.createElement("li");
+        li.textContent= "jiji";
+        ul.appendChild(li);
+    }
+    seccion11.appendChild(ul)
+});
 
-// 15
-let primerArticle = document.querySelector("main article");
-let clon = primerArticle.cloneNode(true);
-document.querySelector("main").appendChild(clon);
 
-// 16
-let primerUl = document.querySelector("ul");
-let ultimoLi = primerUl.lastElementChild;
-primerUl.insertBefore(ultimoLi, primerUl.firstElementChild);
+const parrafo = document.querySelector("p");
+const ejer12 = document.getElementById("ejer12");
+ejer12.addEventListener("click", ()=>{
+    parrafo.innerHTML = 
+    `<div>
+        <h1>ESTE ES EL REEMPLAZO DEL PARRAFO</h1>
+        </div>
+    `
+});
 
-// 17
-let article = document.querySelector("article");
-let pOrdenar = Array.from(article.querySelectorAll("p"));
-pOrdenar.sort((a, b) => a.textContent.localeCompare(b.textContent));
-pOrdenar.forEach(p => article.appendChild(p));
+const ejer13 = document.getElementById("ejer13");
 
-// 18
-let sections = document.querySelectorAll("section");
-sections.forEach((sec, i) => sec.dataset.index = i + 1);
+ejer13.addEventListener("click", () => {
+    const ps = document.querySelectorAll("p");
+    const ultimoP = ps[ps.length - 1];
 
-// 19
-let totalDivs = document.querySelectorAll("div").length;
-let pDivs = document.createElement("p");
-pDivs.textContent = "Cantidad de divs: " + totalDivs;
-document.body.appendChild(pDivs);
+    ultimoP.remove();
+});
 
-// 20
-let ulInterna = document.createElement("ul");
-for (let i = 0; i < 4; i++) {
-    let li = document.createElement("li");
-    let span = document.createElement("span");
-    span.textContent = "Nivel interno";
+
+const ejer14 = document.getElementById("ejer14");
+const contenedor = document.getElementById("contenedor");
+
+ejer14.addEventListener("click", () => {
+    contenedor.innerHTML = "";
+});
+
+const ejer15 = document.getElementById("ejer15");
+ejer15.addEventListener("click", ()=>{
+    const art = document.querySelector("article");
+    const clone = art.cloneNode(true);
+    document.body.appendChild(clone);
+});
+
+const primerUl = document.querySelectorAll("ul");
+const ejer16 = document.getElementById("ejer16");
+
+ejer16.addEventListener("click", ()=>{
+    let ultimoLi = primerUl[0].lastElementChild.textContent;
+    let primerLi = primerUl[0].firstElementChild.textContent
+
+    primerUl[0].firstElementChild.textContent=ultimoLi;
+    primerUl[0].lastElementChild.textContent=primerLi
+})
+
+const ejer17 = document.getElementById("ejer17");
+const div17 = document.getElementById("div17");
+
+ejer17.addEventListener("click", () => {
+    const parrafos = Array.from(div17.children);
+
+    parrafos.sort((a, b) =>
+        a.textContent.localeCompare(b.textContent)
+    );
+
+    parrafos.forEach(p => {
+        div17.appendChild(p);
+    });
+});
+
+
+const seccion18 = document.querySelectorAll("section");
+const secciones = Array.from(seccion18);
+secciones.forEach((seccion, index)=>{
+    seccion.setAttribute("data-index", index)
+});
+
+
+const nodos = document.createElement("p");
+const div19 = document.querySelectorAll("div");
+
+const arregloDivs = Array.from(div19);
+nodos.textContent =`hay ${arregloDivs.length+1} nodos tipo div`
+document.body.appendChild(nodos)
+
+
+const ejer20 = document.getElementById("ejer20");
+const ul20 = document.createElement("ul");
+
+ejer20.addEventListener("click", ()=>{
+for (let i = 0; i < 5; i++) {
+    const li = document.createElement("li")
+    const span = document.createElement("span");
+    span.textContent = "nivel interno"
     li.appendChild(span);
-    ulInterna.appendChild(li);
+    ul20.appendChild(li)
 }
-document.body.appendChild(ulInterna);
+document.body.appendChild(ul20)
+});
 
-// 21
-let cont = document.getElementById("contenedor");
-for (let i = 1; i <= 3; i++) {
-    let p = document.createElement("p");
-    p.textContent = "Párrafo " + i;
-    cont.appendChild(p);
+const div21 = document.createElement("div");
+for (let i = 0; i < 3; i++) {
+    const p21 = document.createElement("p");
+    p21.textContent = "jijijij"
+    div21.appendChild(p21);
+    
 }
-cont.children[1].remove();
+    div21.children[1].remove();
+    document.body.appendChild(div21);
 
-// 22
-let sec = document.querySelector("section");
-let h2Nuevo = document.createElement("h2");
-h2Nuevo.textContent = "Título nuevo";
-sec.appendChild(h2Nuevo);
+const seccion22 = document.createElement("section");
+const h22 = document.createElement("h2");
+h22.textContent = "titulonuevo"
+seccion22.appendChild(h22);
 
-let pDesc = document.createElement("p");
-pDesc.textContent = "Descripción generada";
-sec.appendChild(pDesc);
+const descrip = document.createElement("p");
+descrip.textContent = "descripciongenerada"
+seccion22.appendChild(descrip);
 
-let ul3 = document.createElement("ul");
-for (let i = 1; i <= 3; i++) {
-    let li = document.createElement("li");
-    li.textContent = "Ítem " + i;
-    ul3.appendChild(li);
+const ul22 = document.createElement("ul")
+for (let i = 0; i < 3; i++) {
+    const li = document.createElement("li")
+    li.textContent = "item "+i;   
+    ul22.appendChild(li);
 }
-sec.appendChild(ul3);
+h22.remove();
 
-let h2Original = sec.querySelector("h2");
-if (h2Original && h2Original !== h2Nuevo) {
-    h2Original.remove();
-}
+seccion22.appendChild(ul22)
+document.body.appendChild(seccion22);
